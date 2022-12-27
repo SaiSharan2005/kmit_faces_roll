@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kmit Connect</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<style>
+    body{
+        margin:0px;
+    }
+    nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    background-color: #333;
+}
+
+
+.nav-items {
+    display: flex;
+    align-items: center;
+}
+
+.nav-items ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-items li {
+    margin: 0 10px;
+}
+
+.nav-items a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-items a:hover {
+    color: #ccc;
+}
+
+@media (max-width: 100px) {
+    .nav-items {
+        display: none;
+    }
+
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 400px;
+  border: 1px solid #333;
+}
+
+.box img {
+  width: 100%;
+}
+
+.box p {
+  margin: 10px 0;
+  font-size: 20px;
+}
+</style>
+<!-- HTML -->
+<body>
+  <nav>
+    <!-- <div class="logo">
+      <img src="kmitlogo.jpg" alt="Logo">
+    </div> -->
+    <div class="nav-items">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content">
+    <!-- Your content goes here -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Search">
+      </form>
+  </div>
+  {% if bool  %}
+  <div class="box">
+    <img src="{{img_url}}" alt="Image">
+    <p> {{query}}</p>
+  </div>
+  {% endif %}
+</body>
+</html>
